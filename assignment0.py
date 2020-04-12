@@ -17,11 +17,12 @@ class ModelPredictiveControl:
         return prev_temp + dT 
 
     def cost_function(self, u):
-        cost = 0.0
-        temp = 0.0
+        cost       = 0.0
+        temp       = 0.0
+        ideal_temp = 40.0
         for i in range(0, self.horizon):
             temp = self.plant_model(u[i], temp)
-            cost += abs(temp - self.horizon)
+            cost += abs(temp - ideal_temp)
         return cost
 
 
