@@ -50,7 +50,7 @@ class ModelPredictiveControl:
     def obstacle_cost(self, x, y):
         dist = np.sqrt( (self.x_obs - x) ** 2 + (self.y_obs - y) ** 2 )
         if (dist > 2):
-            return 15
+            return 15 # to smoothen the cost
         else:
             return 30/dist
         
